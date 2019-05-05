@@ -24,5 +24,14 @@ public class TripManager {
 	public void remove(String name) {
 		tripList.remove(name);
 	}
+
+	public Trip find(String name) throws Exception {
+		for  (String n : tripList.keySet()) {
+			if (n == name) {
+				return tripList.get(n);
+			}
+		}
+		return null;
+	}
 	
 }

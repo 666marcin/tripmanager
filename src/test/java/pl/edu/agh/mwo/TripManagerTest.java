@@ -9,11 +9,13 @@ public class TripManagerTest {
 
 	TripManager tripManager;
 	Trip trip;
+	Trip trip2;
 	
 	@Before
 	public void setUp() {
 		tripManager = new TripManager();
 		trip = new Trip("nazwa", "opis");
+		trip2 = new Trip("nazwa2", "opis2");
 	}
 	
 	@Test
@@ -37,6 +39,21 @@ public class TripManagerTest {
 		assertEquals(1, tripManager.getTrips().size());
 		tripManager.remove(trip.getName());
 		assertEquals(0, tripManager.getTrips().size());
-		fail("chcemy zespuc");
+		//fail("chcemy zespuc");
 		}
+	
+	@Test
+	public void testFindTrip() throws Exception {
+		tripManager.add(trip);
+		tripManager.find(trip.getName());
+		assertEquals(trip, tripManager.find(trip.getName()));
+	}
+	
+	@Test
+	public void testFindTripUnAdded() throws Exception {
+		tripManager.add(trip);
+		tripManager.find(trip.getName());
+		assertEquals(null, tripManager.find(trip2.getName()));
+	}
+	
 }
