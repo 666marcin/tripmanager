@@ -25,13 +25,13 @@ public class TripManager {
 		tripList.remove(name);
 	}
 
-	public Trip find(String name) throws Exception {
+	public String find(String name) {
 		for  (String n : tripList.keySet()) {
 			if (n == name) {
-				return tripList.get(n);
+				return tripList.get(n).getName();
 			}
 		}
-		return null;
+		return "Trip not found";
 	}
 	
 }
