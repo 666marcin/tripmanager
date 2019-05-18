@@ -25,13 +25,16 @@ public class TripManager {
 		tripList.remove(name);
 	}
 
-	public String find(String name) {
-		for  (String n : tripList.keySet()) {
-			if (n == name) {
-				return tripList.get(n).getName();
+	public Map<String, Trip> find(String keyword) {
+		
+		Map<String, Trip>  findedTrips = new HashMap<String, Trip>();
+		
+		for  (String name : tripList.keySet()) {
+			if (name.contains(keyword)) {
+				findedTrips.put(name, tripList.get(name));
 			}
 		}
-		return "Trip not found";
+		return findedTrips;
 	}
 	
 }
