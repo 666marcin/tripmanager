@@ -42,18 +42,16 @@ public class TripManagerTest {
 		//fail("chcemy zespuc");
 		}
 	
-	/*@Test
+	@Test
 	public void testFindTrip() throws Exception {
 		tripManager.add(trip);
-		tripManager.find(trip.getName());
-		assertEquals(trip, tripManager.find(trip.getName()));
+		assertEquals(trip.getName(), tripManager.find(trip.getName()));
 	}
 	
 	@Test
 	public void testFindTripUnAdded() throws Exception {
 		tripManager.add(trip);
-		tripManager.find(trip.getName());
-		assertEquals(null, tripManager.find(trip2.getName()));
+		assertEquals("Trip not found", tripManager.find(trip2.getName()));
 	}
-	*/
+	
 }
